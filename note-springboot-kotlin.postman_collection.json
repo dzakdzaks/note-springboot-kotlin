@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "510daf9a-f864-41e3-84f5-21b1b0fd5aaf",
+		"name": "note-springboot-kotlin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1245925"
+	},
+	"item": [
+		{
+			"name": "Get Note By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_note_springboot}}v1/note/62b1524bd0db143a3a80ae46",
+					"host": [
+						"{{base_url_note_springboot}}v1"
+					],
+					"path": [
+						"note",
+						"62b1524bd0db143a3a80ae46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_note_springboot}}v1/note",
+					"host": [
+						"{{base_url_note_springboot}}v1"
+					],
+					"path": [
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\":\"note 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url_note_springboot}}v1/note",
+					"host": [
+						"{{base_url_note_springboot}}v1"
+					],
+					"path": [
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Note",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\":\"note 2 updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url_note_springboot}}v1/note/62b15269d0db143a3a80ae48",
+					"host": [
+						"{{base_url_note_springboot}}v1"
+					],
+					"path": [
+						"note",
+						"62b15269d0db143a3a80ae48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Note",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url_note_springboot}}v1/note/62b152a1d0db143a3a80ae4a",
+					"host": [
+						"{{base_url_note_springboot}}v1"
+					],
+					"path": [
+						"note",
+						"62b152a1d0db143a3a80ae4a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
