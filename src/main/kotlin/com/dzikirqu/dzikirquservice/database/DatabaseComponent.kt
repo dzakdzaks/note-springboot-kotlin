@@ -1,6 +1,6 @@
 package com.dzikirqu.dzikirquservice.database
 
-import com.mongodb.client.MongoClient
+import com.mongodb.client.MongoDatabase
 import org.litote.kmongo.KMongo
 import org.springframework.stereotype.Component
 
@@ -11,5 +11,5 @@ class DatabaseComponent {
         private const val DB_URL = "mongodb+srv://dzakdzaks:dzakdzaks@firstcluster.wlsr7.mongodb.net/?retryWrites=true&w=majority"
     }
 
-    val database: MongoClient = KMongo.createClient(DB_URL)
+    val database: MongoDatabase = KMongo.createClient(DB_URL).getDatabase("note")
 }

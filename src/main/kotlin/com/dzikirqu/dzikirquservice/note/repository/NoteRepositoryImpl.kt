@@ -16,7 +16,7 @@ class NoteRepositoryImpl : NoteRepository {
     private lateinit var databaseComponent: DatabaseComponent
 
     private val noteCollection: MongoCollection<Note> by lazy {
-        databaseComponent.database.getDatabase("note").getCollection()
+        databaseComponent.database.getCollection()
     }
 
     override fun getNoteById(id: String): Pair<Note?, String> {
