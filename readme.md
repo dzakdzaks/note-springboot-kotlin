@@ -22,7 +22,7 @@ https://note-springboot-kotlin.herokuapp.com/
 - Then access to `http://localhost:8003`
 
 ## Postman collection
-Import file `note-springboot-kotlin.postman_collection.json` to your postman, and setup  your environment collection.
+Import file [note-springboot-kotlin.postman_collection.json](https://github.com/dzakdzaks/note-springboot-kotlin/blob/master/note-springboot-kotlin.postman_collection.json) to your postman, and setup  your environment collection.
 
 ---
 
