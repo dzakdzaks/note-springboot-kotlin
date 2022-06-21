@@ -97,10 +97,10 @@ class NoteController {
         @PathVariable(name = "id") id: String
     ): BaseResponse<String> {
         val result = noteService.deleteNote(id = id)
-        return if (result.first && result.second.isEmpty()) {
+        return if (result.first != null && result.second.isEmpty()) {
             BaseResponse(
                 status = HttpStatus.OK.value(),
-                message = "Delete Note Success",
+                message = "${result.first?.content} Deleted",
                 data = null
             )
         } else {

@@ -21,7 +21,11 @@ class NoteRepositoryImpl : NoteRepository {
 
     override fun getNoteById(id: String): Pair<Note?, String> {
         return try {
-            noteCollection.findOneById(id) to ""
+            noteCollection.findOneById(id)?.let {
+                it to ""
+            } ?: kotlin.run {
+                null to "Note Not Found"
+            }
         } catch (e: Exception) {
             null to e.localizedMessage
         }
@@ -50,12 +54,12 @@ class NoteRepositoryImpl : NoteRepository {
 
     override fun updateNote(id: String, note: Note): Pair<Note?, String> {
         return try {
-            val result = noteCollection.findOneAndUpdate(
+            val update = noteCollection.updateOne(
                 Note::id eq id,
                 set(Note::content setTo note.content, Note::updatedDate setTo Date())
             )
-            if (result != null) {
-                result to ""
+            if (update.wasAcknowledged()) {
+                getNoteById(id)
             } else {
                 null to "Note Not Found"
             }
@@ -65,16 +69,16 @@ class NoteRepositoryImpl : NoteRepository {
 
     }
 
-    override fun deleteNote(id: String): Pair<Boolean, String> {
+    override fun deleteNote(id: String): Pair<Note?, String> {
         return try {
             val result = noteCollection.findOneAndDelete(Note::id eq id)
             if (result != null) {
-                true to ""
+                result to ""
             } else {
-                false to "Note Not Found"
+                null to "Note Not Found"
             }
         } catch (e: Exception) {
-            false to e.localizedMessage
+            null to e.localizedMessage
         }
     }
 }

@@ -27,7 +27,7 @@ class NoteServiceImpl: NoteService {
         return noteRepository.updateNote(id, note)
     }
 
-    override fun deleteNote(id: String): Pair<Boolean, String> {
+    override fun deleteNote(id: String): Pair<Note?, String> {
         return noteRepository.deleteNote(id)
     }
 }

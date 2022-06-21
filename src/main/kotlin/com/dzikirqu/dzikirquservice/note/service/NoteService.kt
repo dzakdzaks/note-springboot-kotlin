@@ -7,5 +7,5 @@ interface NoteService {
     fun getNotes(): Pair<List<Note>, String>
     fun addNote(note: Note): Pair<Note?, String>
     fun updateNote(id: String, note: Note): Pair<Note?, String>
-    fun deleteNote(id: String): Pair<Boolean, String>
+    fun deleteNote(id: String): Pair<Note?, String>
 }

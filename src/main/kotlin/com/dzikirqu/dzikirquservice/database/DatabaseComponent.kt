@@ -12,6 +12,6 @@ class DatabaseComponent {
     }
 
     val database: MongoDatabase by lazy {
-        KMongo.createClient(DB_URL).getDatabase("note")
+        KMongo.createClient(DB_URL).getDatabase("note_db")
     }
 }
