@@ -11,5 +11,7 @@ class DatabaseComponent {
         private const val DB_URL = "mongodb+srv://dzakdzaks:dzakdzaks@firstcluster.wlsr7.mongodb.net/?retryWrites=true&w=majority"
     }
 
-    val database: MongoDatabase = KMongo.createClient(DB_URL).getDatabase("note")
+    val database: MongoDatabase by lazy {
+        KMongo.createClient(DB_URL).getDatabase("note")
+    }
 }
